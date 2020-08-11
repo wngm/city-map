@@ -92,57 +92,57 @@
                 description: '"Building id ${id} has height ${Height}."'
             }
         });
-        var s = 1
-        setInterval(() => {
-            if (s === 1) {
-                city.style = new Cesium.Cesium3DTileStyle({
-                    color: {
-                        conditions: [
-                            ['${Height} >= 100', 'color("purple", 0.5)'],
-                            ['${Height} >= 50', 'color("red",0.8)'],
-                            ['true', 'color("blue",1)']
-                        ]
-                    },
-                    show: '${Height} > 0',
-                    meta: {
-                        description: '"Building id ${id} has height ${Height}."'
-                    }
-                });
-            } else if (s === 2) {
-                city.style = new Cesium.Cesium3DTileStyle({
-                    color: {
-                        conditions: [
-                            ['${Height} >= 100', 'color("purple", 0.8)'],
-                            ['${Height} >= 50', 'color("red",0.5)'],
-                            ['true', 'color("blue",1)']
-                        ]
-                    },
-                    show: '${Height} > 0',
-                    meta: {
-                        description: '"Building id ${id} has height ${Height}."'
-                    }
-                });
-            } else {
-                city.style = new Cesium.Cesium3DTileStyle({
-                    color: {
-                        conditions: [
-                            ['${Height} >= 100', 'color("purple", 0.8)'],
-                            ['${Height} >= 50', 'color("red", 1)'],
-                            ['true', 'color("blue")']
-                        ]
-                    },
-                    show: '${Height} > 0',
-                    meta: {
-                        description: '"Building id ${id} has height ${Height}."'
-                    }
-                });
-            }
-            s += 1
-            if (s > 3) {
-                s = 1
-            }
+        // var s = 1
+        // setInterval(() => {
+        //     if (s === 1) {
+        //         city.style = new Cesium.Cesium3DTileStyle({
+        //             color: {
+        //                 conditions: [
+        //                     ['${Height} >= 100', 'color("purple", 0.5)'],
+        //                     ['${Height} >= 50', 'color("red",0.8)'],
+        //                     ['true', 'color("blue",1)']
+        //                 ]
+        //             },
+        //             show: '${Height} > 0',
+        //             meta: {
+        //                 description: '"Building id ${id} has height ${Height}."'
+        //             }
+        //         });
+        //     } else if (s === 2) {
+        //         city.style = new Cesium.Cesium3DTileStyle({
+        //             color: {
+        //                 conditions: [
+        //                     ['${Height} >= 100', 'color("purple", 0.8)'],
+        //                     ['${Height} >= 50', 'color("red",0.5)'],
+        //                     ['true', 'color("blue",1)']
+        //                 ]
+        //             },
+        //             show: '${Height} > 0',
+        //             meta: {
+        //                 description: '"Building id ${id} has height ${Height}."'
+        //             }
+        //         });
+        //     } else {
+        //         city.style = new Cesium.Cesium3DTileStyle({
+        //             color: {
+        //                 conditions: [
+        //                     ['${Height} >= 100', 'color("purple", 0.8)'],
+        //                     ['${Height} >= 50', 'color("red", 1)'],
+        //                     ['true', 'color("blue")']
+        //                 ]
+        //             },
+        //             show: '${Height} > 0',
+        //             meta: {
+        //                 description: '"Building id ${id} has height ${Height}."'
+        //             }
+        //         });
+        //     }
+        //     s += 1
+        //     if (s > 3) {
+        //         s = 1
+        //     }
 
-        }, 1000);
+        // }, 1000);
         setTimeout(function () {
 
             document.getElementsByClassName('cesium-viewer-bottom')[0].innerHTML = ''
