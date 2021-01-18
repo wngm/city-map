@@ -9,9 +9,12 @@ var port = process.env.PORT || 3000;
 var compiler = webpack(webpackCfg);
 
 //init server
+
 var app = new webpackDevServer(compiler, {
   //注意此处publicPath必填
-  publicPath: webpackCfg.output.publicPath,
+  // publicPath: webpackCfg.output.publicPath,
+  publicPath: "",
+  ...webpackCfg.devServer,
 });
 
 app.listen(port, "localhost", function (err) {

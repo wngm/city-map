@@ -4,19 +4,21 @@
   "description": "cesium",
   "main": "src/page/index.js",
   "scripts": {
-    "build": "webpack --config config/webpack.base.config.js",
-    "dev": "cross-env PORT=3003 node ./config/devServer.js",
+    "build": "webpack --config config/webpack.prod.config.js",
+    "dev": "cross-env PORT=3000 node ./config/devServer.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "wengzhe",
   "license": "ISC",
   "devDependencies": {
+    "clean-webpack-plugin": "^3.0.0",
     "copy-webpack-plugin": "^7.0.0",
     "html-webpack-plugin": "^4.5.1",
     "open": "^7.3.1",
     "webpack": "^5.11.1",
     "webpack-cli": "3",
-    "webpack-dev-server": "^3.11.1"
+    "webpack-dev-server": "^3.11.1",
+    "webpack-merge": "^5.7.3"
   },
   "dependencies": {
     "cross-env": "^7.0.3"

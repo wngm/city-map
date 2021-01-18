@@ -20,10 +20,10 @@ var viewer = new Cesium.Viewer("cesium", {
   //     url: 'https://a.tile.openstreetmap.org/'
   // }),
   // vrButton:true,
-  baseLayerPicker: false,
-  navigationHelpButton: false,
+  baseLayerPicker: true,
+  navigationHelpButton: true,
   navigationInstructionsInitiallyVisible: false,
-  shouldAnimate: false,
+  shouldAnimate: true,
   geocoder: false,
   sceneModePicker: false,
   terrainProvider: Cesium.createWorldTerrain({
@@ -35,6 +35,9 @@ var viewer = new Cesium.Viewer("cesium", {
   //     requestVertexNormals: true
   // }),
 });
+
+viewer.extend(Cesium.Cesium.viewerCesiumInspectorMixin);
+viewer.extend(Cesium.viewerCesium3DTilesInspectorMixin);
 // console.log(viewer)
 // viewer.camera.flyTo()
 // viewer.camera.setView({
@@ -76,6 +79,7 @@ city.style = new Cesium.Cesium3DTileStyle({
     description: '"Building id ${id} has height ${Height}."',
   },
 });
+
 // var s = 1
 // setInterval(() => {
 //     if (s === 1) {
@@ -130,3 +134,5 @@ city.style = new Cesium.Cesium3DTileStyle({
 setTimeout(function () {
   document.getElementsByClassName("cesium-viewer-bottom")[0].innerHTML = "";
 }, 0);
+
+console.log(viewer.camera);

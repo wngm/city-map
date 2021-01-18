@@ -53,7 +53,7 @@ module.exports = {
   output: {
     path: dist,
     //直接输出完整路径
-    filename: "[name].[hash:8].js",
+    filename: "js/[name].[hash:8].js",
     //动态输出文件名，以chunk名命名
   },
   plugins: [
@@ -66,35 +66,8 @@ module.exports = {
           chunks: [i.name],
         })
     ),
-    new CopyPlugin({
-      patterns: [
-        { from: path.resolve(__dirname, "../public/static"), to: "static" },
-      ],
-    }),
   ],
-};
-
-var s = {
-  entry: { a: "a.js", b: "b.js" },
-  output: {
-    // webpack 如何输出结果的相关选项
-    path: path.resolve(__dirname, "dist"),
-    // 所有输出文件的目标路径
-    // 必须是绝对路径（使用 Node.js 的 path 模块）
-    filename: "[name].js",
+  devServer: {
+    contentBase: [path.join(__dirname, "../public")],
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-      filename: i.name + ".html",
-      template: path.resolve(__dirname, "../public/index.html"),
-      inject: true,
-      chunks: [i.name],
-    }),
-    new HtmlWebpackPlugin({
-      filename: i.name + ".html",
-      template: path.resolve(__dirname, "../public/index.html"),
-      inject: true,
-      chunks: [i.name],
-    }),
-  ],
 };
